@@ -2,7 +2,11 @@
 A full-stack ride booking platform inspired by Uber/Ola.
 
 RideVista is a role-based web application that allows users to book rides, drivers to manage ride requests, and admins to monitor the system.  
+<<<<<<< HEAD
 This project was built to demonstrate real-world backend and full-stack development skills.
+=======
+This project demonstrates real-world backend and full-stack development skills.
+>>>>>>> cfceaf4b8b63188a9b883f8293784d8b4f835a83
 
 ---
 
@@ -13,7 +17,11 @@ This project was built to demonstrate real-world backend and full-stack developm
 - Role-based access control (User / Driver / Admin)
 - Ride booking workflow (request → accept → complete)
 - MySQL relational database with foreign keys
+<<<<<<< HEAD
 - Clean project structure and reusable configuration
+=======
+- Clean and scalable project structure
+>>>>>>> cfceaf4b8b63188a9b883f8293784d8b4f835a83
 
 ---
 
@@ -32,4 +40,8 @@ The database is normalized and designed using real production principles:
 - `drivers` table linked via foreign key
 - `rides` table with status-based lifecycle
 
+<<<<<<< HEAD
 Database schema is available in:
+=======
+Database schema:
+>>>>>>> cfceaf4b8b63188a9b883f8293784d8b4f835a83

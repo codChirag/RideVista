@@ -1,24 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Register | RideVista</title>
-</head>
-<body>
-
-<h2>Create Account</h2>
-
-<form method="POST" action="register_process.php">
-    <input type="text" name="name" placeholder="Full Name" required><br><br>
-    <input type="email" name="email" placeholder="Email" required><br><br>
-    <input type="password" name="password" placeholder="Password" required><br><br>
-
-    <select name="role">
-        <option value="user">Rider</option>
-        <option value="driver">Driver</option>
-    </select><br><br>
-
-    <button type="submit">Register</button>
+<?php
+include "../config/db.php";
+if($_SERVER["REQUEST_METHOD"]==="POST"){
+  $p=password_hash($_POST['password'],PASSWORD_DEFAULT);
+  mysqli_query($conn,
+   "INSERT INTO users(name,email,password,role)
+    VALUES('".$_POST['name']."','".$_POST['email']."','$p','".$_POST['role']."')"
+  );
+  if($_POST['role']=="driver"){
+    $uid=mysqli_insert_id($conn);
+    mysqli_query($conn,"INSERT INTO drivers(user_id) VALUES($uid)");
+  }
+  header("Location: login.php");
+}
+?>
+<form method="POST">
+<input name="name" required>
+<input name="email" required>
+<input name="password" required>
+<select name="role">
+<option value="rider">Rider</option>
+<option value="driver">Driver</option>
+</select>
+<button>Register</button>
 </form>
-
-</body>
-</html>
